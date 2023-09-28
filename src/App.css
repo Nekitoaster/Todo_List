@@ -1,0 +1,49 @@
+h1 {
+    text-align: center;
+    color: whitesmoke
+}
+
+.interface {
+  place-content: center;
+  align-items: center;
+  place-items: center;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.input__block {
+  display: grid;
+}
+
+input {
+  height: 25px;
+  width: 400px;
+  background: none;
+  border: none;
+  border-bottom: 2px whitesmoke solid;
+  color: white;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+.enter {
+  height: 84px;
+  margin-left: 5px;
+  border: 2px whitesmoke solid;
+  color: white;
+}
+
+.enter:hover {
+    background-color: whitesmoke;
+    color: black;
+}
