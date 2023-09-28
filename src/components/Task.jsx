@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../Task.css";
+import "../style/Task.css";
 
 export default Task;
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import "./style/App.css";
 import Task from "./components/Task";
 import { v4 as uuidv4 } from "uuid";
 import Draggable from "react-draggable";
