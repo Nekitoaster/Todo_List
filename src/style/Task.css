@@ -52,11 +52,8 @@ button {
   left: 10px;
 }
 
-.step:disabled {
-  background: whitesmoke;
-  color: whitesmoke;
-  border: none;
-  cursor: move;
+.completed {
+  margin-left: 25px;
 }
 
 button:hover:enabled {

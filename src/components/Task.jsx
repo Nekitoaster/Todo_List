@@ -11,16 +11,29 @@ function Task({
   onDelete,
   id
 }) {
-
   let [current, setCurrent] = useState(value);
   let canInc = current < goal;
-  value = current;
 
   function increase() {
     if (canInc) {
-      let newValue = value + 1;
+      let newValue = current + 1;
       setCurrent(newValue);
     }
+  }
+
+  function onCompleted() {
+    if(canInc) {
+      return (
+        <button onClick={increase} className="step">
+          Сделать шаг
+        </button>
+      );
+    } else {
+      return(
+          <h3 className='completed'>Выполнено!</h3>
+        )
+    }
+  
   }
 
   return (
@@ -32,17 +45,15 @@ function Task({
           <div
             className="black"
             style={{
-              width: (100 / goal) * value + "%",
+              width: (100 / goal) * current + "%",
               opacity: "width 0,9s",
             }}
           ></div>
         </div>
         <strong>
-          {value}/{goal}
+          {current}/{goal}
         </strong>
-        <button onClick={increase} className="step" disabled={!canInc}>
-          Сделать шаг
-        </button>
+        {onCompleted()}
       </div>
       <button onClick={() => onDelete(id)} className="del">
         X

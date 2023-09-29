@@ -90,7 +90,7 @@ function App() {
             }}
             defaultPosition={item.defaultPos}
           >
-            <div key={item.id}>
+            <div>
               <Task
                 updatePos={item.updatePos}
                 defaultPos={item.defaultPos}
