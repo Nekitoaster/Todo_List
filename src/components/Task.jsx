@@ -1,30 +1,25 @@
-import { useState } from "react";
+import PropTypes from 'prop-types'
 import "../style/Task.css";
 
 export default Task;
 
-function Task({
-  value,
-  tittle,
-  goal,
-  description,
-  onDelete,
-  id
-}) {
-  let [current, setCurrent] = useState(value);
-  let canInc = current < goal;
+Task.propTypes = {
+  onDelete: PropTypes.func.isRequired,
+  increase: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired
+};
 
-  function increase() {
-    if (canInc) {
-      let newValue = current + 1;
-      setCurrent(newValue);
-    }
-  }
+
+function Task({item, onDelete,increase,}) {
+
+  let {current, tittle, goal, description, id} = item;
+  
+  let canInc = current < goal;
 
   function onCompleted() {
     if(canInc) {
       return (
-        <button onClick={increase} className="step">
+        <button onClick={() => increase(id)} className="step">
           Сделать шаг
         </button>
       );

@@ -22,14 +22,17 @@ function App() {
     if (
       tittle.trim() !== "" &&
       description.trim() !== "" &&
-      goal.trim() !== ""
+      goal.trim() !== "" &&
+      100 >= goal &&
+      goal > 0
+      
     ) {
       const newItem = {
         id: uuidv4(),
-        value: 0,
+        current: 0,
         tittle,
         description,
-        goal,
+        goal: +goal,
         defaultPos: { x: 580, y: 100 },
       };
       setItems((items) => [...items, newItem]);
@@ -37,9 +40,22 @@ function App() {
       setDescription("");
       setGoal("");
     } else {
-      alert("Заполните все поля!");
+      alert("Заполните все поля корректно!");
     }
   };
+
+  function increaseItem(id) {
+    setItems(
+      items.map((item) =>
+        item.id === id && item.current < item.goal
+          ? {
+              ...item,
+              current: item.current + 1,
+            }
+          : item
+      )
+    );
+  }
 
   const deleteTask = (id) => {
     const newArr = [...items].filter((item) => item.id !== id);
@@ -72,7 +88,7 @@ function App() {
           <input
             value={goal}
             type="number"
-            placeholder="Количество"
+            placeholder="Количество (Максимум 100)"
             onChange={(e) => setGoal(e.target.value)}
           />
         </div>
@@ -92,14 +108,9 @@ function App() {
           >
             <div>
               <Task
-                updatePos={item.updatePos}
-                defaultPos={item.defaultPos}
-                id={item.id}
-                tittle={item.tittle}
-                description={item.description}
-                goal={item.goal}
-                value={item.value}
+                item={item}
                 onDelete={deleteTask}
+                increase={increaseItem}
               />
             </div>
           </Draggable>
