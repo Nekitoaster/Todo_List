@@ -16,6 +16,7 @@ function Task({item, del,increase,}) {
   
   let canInc = current < goal;
 
+  // Проверка на выполнение поставленной задачи
   function onCompleted() {
     if(canInc) {
       return (
@@ -31,6 +32,7 @@ function Task({item, del,increase,}) {
   
   }
 
+  // Создание отдельного элемента Туду листа
   return (
     <div className="block">
       <div className="body">

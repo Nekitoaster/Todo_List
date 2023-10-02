@@ -14,10 +14,12 @@ function App() {
     JSON.parse(localStorage.getItem("items")) || []
   );
 
+  // Получение данных из хранилища и сохранение обратно
   useEffect(() => {
     localStorage.setItem("items", JSON.stringify(items));
   }, [items]);
 
+  // Добавление нового элемента Туду листа
   const addTask = () => {
     if (
       tittle.trim() !== "" &&
@@ -25,7 +27,6 @@ function App() {
       goal.trim() !== "" &&
       100 >= goal &&
       goal > 0
-      
     ) {
       const newTask = {
         id: uuidv4(),
@@ -44,6 +45,7 @@ function App() {
     }
   };
 
+  // Увеличение текущего прогресса от цели
   function increaseItem(id) {
     setItems(
       items.map((item) =>
@@ -57,11 +59,13 @@ function App() {
     );
   }
 
+  // Удаление элемента Туду листа
   const deleteTask = (id) => {
     const newArr = [...items].filter((item) => item.id !== id);
     setItems(newArr);
   };
 
+  // Обновление расположения каждого отдельного элемента
   const updatePos = (data, id) => {
     let newArr = [...items];
     newArr[id].defaultPos = { x: data.x, y: data.y };
@@ -69,6 +73,7 @@ function App() {
   };
 
   return (
+    // Форма для заполнения элемента Туду листа
     <div>
       <h1>TODO LIST</h1>
       <div className="interface">
@@ -97,6 +102,7 @@ function App() {
         </button>
       </div>
 
+      {/* Вызов всех созданых элементов Туду листа */}
       {items.map((item, id) => {
         return (
           <Draggable
@@ -107,11 +113,7 @@ function App() {
             defaultPosition={item.defaultPos}
           >
             <div>
-              <Task
-                item={item}
-                del={deleteTask}
-                increase={increaseItem}
-              />
+              <Task item={item} del={deleteTask} increase={increaseItem} />
             </div>
           </Draggable>
         );
