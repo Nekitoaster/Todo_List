@@ -18,7 +18,7 @@ function App() {
     localStorage.setItem("items", JSON.stringify(items));
   }, [items]);
 
-  const newTask = () => {
+  const addTask = () => {
     if (
       tittle.trim() !== "" &&
       description.trim() !== "" &&
@@ -27,7 +27,7 @@ function App() {
       goal > 0
       
     ) {
-      const newItem = {
+      const newTask = {
         id: uuidv4(),
         current: 0,
         tittle,
@@ -35,7 +35,7 @@ function App() {
         goal: +goal,
         defaultPos: { x: 580, y: 100 },
       };
-      setItems((items) => [...items, newItem]);
+      setItems((items) => [...items, newTask]);
       setTittle("");
       setDescription("");
       setGoal("");
@@ -92,7 +92,7 @@ function App() {
             onChange={(e) => setGoal(e.target.value)}
           />
         </div>
-        <button className="enter" onClick={newTask}>
+        <button className="enter" onClick={addTask}>
           Ввести
         </button>
       </div>
@@ -109,7 +109,7 @@ function App() {
             <div>
               <Task
                 item={item}
-                onDelete={deleteTask}
+                del={deleteTask}
                 increase={increaseItem}
               />
             </div>

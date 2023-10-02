@@ -4,13 +4,13 @@ import "../style/Task.css";
 export default Task;
 
 Task.propTypes = {
-  onDelete: PropTypes.func.isRequired,
+  del: PropTypes.func.isRequired,
   increase: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired
 };
 
 
-function Task({item, onDelete,increase,}) {
+function Task({item, del,increase,}) {
 
   let {current, tittle, goal, description, id} = item;
   
@@ -50,7 +50,7 @@ function Task({item, onDelete,increase,}) {
         </strong>
         {onCompleted()}
       </div>
-      <button onClick={() => onDelete(id)} className="del">
+      <button onClick={() => del(id)} className="del">
         X
       </button>
     </div>
