@@ -1,3 +1,5 @@
 body {
-    background: #222222;
+  /* background: #222222; */
+  margin: 0;
+  height: 100vh;
 }

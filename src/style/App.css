@@ -1,6 +1,34 @@
+:root {
+  --btn-light: whitesmoke;
+  --border-light: whitesmoke;
+  --text-light: whitesmoke;
+  --bcg-light: whitesmoke;
+  --btn-dark: #222222;
+  --border-dark: #222222;
+  --text-dark: #222222;
+  --bcg-dark: #222222;
+}
+
+.bcg {
+  background: var(--bcg-dark);
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.bcg_light {
+  background: var(--bcg-light);
+}
+
 h1 {
-    text-align: center;
-    color: whitesmoke
+  padding-top: 10px;
+  margin-top: 0;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.text_light {
+  color: var(--text-dark);
 }
 
 .interface {
@@ -20,30 +48,68 @@ input {
   width: 400px;
   background: none;
   border: none;
-  border-bottom: 2px whitesmoke solid;
-  color: white;
+  border-bottom: 2px var(--border-light) solid;
+  color: var(--text-light);
+}
+
+input.input_light {
+  border-bottom: 2px var(--border-dark) solid;
+  color: var(--text-dark);
 }
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
-input[type='number'],
+input[type="number"],
 input[type="number"]:hover,
 input[type="number"]:focus {
-    appearance: none;
-    -moz-appearance: textfield;
+  appearance: none;
+  -moz-appearance: textfield;
 }
 
 .enter {
   height: 84px;
   margin-left: 5px;
-  border: 2px whitesmoke solid;
-  color: white;
+  border: 2px var(--border-light) solid;
+  color: var(--text-light);
 }
 
 .enter:hover {
-    background-color: whitesmoke;
-    color: black;
+  cursor: pointer;
+  background-color: var(--bcg-light);
+  color: var(--text-dark);
+}
+
+.enter_light {
+  border: 2px var(--border-dark) solid;
+  color: var(--text-dark);
+}
+
+.enter_light:hover {
+  background-color: var(--bcg-dark);
+  color: var(--text-light);
+}
+
+.theme {
+  margin-left: 90%;
+  margin-top: 20px;
+  border: 2px var(--border-light) solid;
+  color: var(--text-light);
+}
+.theme:hover {
+  cursor: pointer;
+  background-color: var(--bcg-light);
+  color: var(--text-dark);
+}
+
+.theme_light {
+  border: 2px var(--border-dark) solid;
+  color: var(--text-dark);
+}
+
+.theme_light:hover {
+  background-color: var(--bcg-dark);
+  color: var(--text-light);
 }

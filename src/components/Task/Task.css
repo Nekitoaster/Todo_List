@@ -1,0 +1,142 @@
+:root {
+  --btn-light: whitesmoke;
+  --border-light: whitesmoke;
+  --text-light: whitesmoke;
+  --bcg-light: whitesmoke;
+  --btn-dark: #222222;
+  --border-dark: #222222;
+  --text-dark: #222222;
+  --bcg-dark: #222222;
+  --progress-light: rgb(201, 194, 194);
+  --progress-dark: #2c2c2c;
+  --card-dark: #4b4a4a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.block {
+  border: 1px var(--border-dark) solid;
+  cursor: move;
+  position: absolute;
+  min-width: 320px;
+  min-height: 200px;
+  background: var(--bcg-light);
+  border-radius: 15px;
+  margin-bottom: 20px;
+  padding: 10px 16px;
+  padding-top: 10px;
+}
+
+.block_light {
+  border: 1px white solid;
+  background: var(--card-dark);
+  color: white;
+}
+
+.body {
+  min-width: 90%;
+  display: grid;
+}
+
+.tittle {
+  text-transform: uppercase;
+  margin-left: 4px;
+  font-size: 18px;
+  margin-right: 20px;
+  margin-top: 0px;
+}
+
+.description {
+  margin-left: 14px;
+  font-size: 16px;
+}
+
+.progress-bar {
+  place-self: center;
+  background: var(--progress-light);
+  border-radius: 20px;
+  width: 97%;
+  height: 20px;
+  margin-bottom: 15px;
+}
+
+.progress-bar_light {
+  background: var(--progress-dark);
+}
+
+.progress {
+  height: 100%;
+  background: var(--bcg-dark);
+  border-radius: 20px;
+  transition: width 1s;
+}
+
+.progress_light {
+  background: var(--bcg-light);
+}
+
+strong {
+  margin-left: 14px;
+}
+
+button {
+  background: none;
+  border: 2px var(--border-dark) solid;
+  border-radius: 6px;
+  min-height: 30px;
+  min-width: 30px;
+  max-width: 120px;
+  text-transform: uppercase;
+}
+
+.step {
+  margin-top: 8px;
+}
+
+.step:hover {
+  cursor: pointer;
+  background: var(--bcg-dark);
+  color: var(--text-light);
+}
+
+.step_light {
+  border: 2px var(--border-light) solid;
+  color: var(--text-light);
+}
+
+.step_light:hover {
+  cursor: pointer;
+  background: var(--bcg-light);
+  color: var(--text-dark);
+}
+
+.completed {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+
+.del {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+.del:hover {
+  cursor: pointer;
+  background: var(--bcg-dark);
+  color: var(--text-light);
+}
+
+.del_light {
+  border: 2px var(--border-light) solid;
+  color: var(--text-light);
+}
+
+.del_light:hover {
+  cursor: pointer;
+  background: var(--bcg-light);
+  color: var(--text-dark);
+}
